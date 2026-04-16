@@ -1,0 +1,2591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="6_XhQUgQw5Exx76J9iFPgiUKf5UbiG9cvFapNzUhJJE" />
+<title>TecnoTaptana | Sabiduría Ancestral · Innovación Digital</title>
+<meta name="description" content="Proyecto Taptana Tecnológica: integración de tecnología moderna con conocimientos ancestrales del pueblo cañari en Ecuador.">
+<meta name="keywords" content="Taptana Tecnológica, cultura cañari, proyecto educativo, tecnología Ecuador, educación intercultural">
+<meta name="author" content="Unidad Educativa Sudamericano">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalProject",
+  "name": "TecnoTaptana",
+  "description": "Proyecto educativo que integra tecnología moderna con conocimientos ancestrales del pueblo cañari",
+  "inLanguage": "es"
+}
+</script>
+
+<style>
+:root {
+  --gold: #D4A017;
+  --gold-light: #F0C840;
+  --gold-dark: #9A7010;
+  --obsidian: #0A0A0F;
+  --deep: #12121A;
+  --surface: #1A1A26;
+  --card: #1E1E2E;
+  --border: rgba(212,160,23,0.2);
+  --text: #E8E0D0;
+  --text-muted: #9A9080;
+  --accent: #C85A2A;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--obsidian);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE ─── */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0; opacity:.4;
+}
+
+/* ─── NAVBAR ─── */
+header {
+  position: fixed; top:0; width:100%; z-index:1000;
+  background: rgba(10,10,15,0.95);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 38px; height: 38px;
+  position: relative;
+}
+
+.sun-svg { width:38px; height:38px; }
+
+.nav-logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.nav-logo-text span {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+  align-items: center;
+}
+
+.nav-links > li {
+  position: relative;
+}
+
+.nav-links > li > a,
+.nav-links > li > button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 18px;
+  height: 70px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links > li > a:hover,
+.nav-links > li > button:hover,
+.nav-links > li > a.active {
+  color: var(--gold);
+}
+
+.nav-links > li > a svg,
+.nav-links > li > button svg { width:10px; transition: transform 0.2s; }
+
+.nav-links > li:hover > button svg { transform: rotate(180deg); }
+
+/* Dropdowns */
+.dropdown-menu {
+  position: absolute;
+  top: 70px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  min-width: 220px;
+  padding: 8px 0;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: translateX(-50%) translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.nav-links > li:hover .dropdown-menu {
+  opacity: 1; visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.15s, padding-left 0.15s;
+  border-left: 2px solid transparent;
+}
+
+.dropdown-menu a:hover {
+  color: var(--gold);
+  padding-left: 26px;
+  border-left-color: var(--gold);
+}
+
+/* ─── HERO ─── */
+#inicio {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset:0;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(212,160,23,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,90,42,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(212,160,23,0.04) 0%, transparent 60%);
+}
+
+/* Geometric pattern */
+.hero-bg::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(212,160,23,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,160,23,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+}
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-logo-big {
+  width: 100px; height: 100px;
+  margin: 0 auto 32px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+h1.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(42px, 8vw, 90px);
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--text);
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.4s forwards;
+}
+
+h1.hero-title span { color: var(--gold); }
+
+.hero-subtitle-line {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-desc {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  color: var(--text-muted);
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.btn-primary {
+  padding: 14px 36px;
+  background: var(--gold);
+  color: var(--obsidian);
+  border: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-outline {
+  padding: 13px 35px;
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+.btn-outline:hover { background: var(--gold); color: var(--obsidian); }
+
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; animation: fadeIn 1s 1.2s forwards;
+}
+
+.hero-scroll span {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(var(--gold), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 32px 5%;
+}
+
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.stat-item {
+  background: var(--surface);
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+
+.stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ─── SECTIONS ─── */
+section {
+  padding: 100px 5%;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-tag::before {
+  content:'';
+  display:inline-block;
+  width:30px; height:1px;
+  background: var(--gold);
+}
+
+h2.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+h2.section-title span { color: var(--gold); }
+
+.section-lead {
+  font-size: 19px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 60px;
+  font-style: italic;
+}
+
+/* ─── INTRODUCTION ─── */
+#introduccion { background: var(--deep); }
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.intro-text p { margin-bottom: 20px; color: var(--text); font-size: 18px; }
+
+.intro-highlight {
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  background: rgba(212,160,23,0.06);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--text);
+  margin: 32px 0;
+}
+
+.intro-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.info-card-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card li {
+  padding: 6px 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-card li::before {
+  content: '▸';
+  color: var(--gold);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+/* ─── PROYECTO ─── */
+#problema { background: var(--obsidian); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 50px;
+}
+
+.problem-block {
+  background: var(--card);
+  padding: 40px 32px;
+  transition: background 0.2s;
+}
+
+.problem-block:hover { background: var(--surface); }
+
+.block-icon {
+  width: 48px; height: 48px;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.block-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.block-text {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ─── OBJETIVOS ─── */
+#objetivos { background: var(--deep); }
+
+.obj-main {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  padding: 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.obj-main::before {
+  content: '"';
+  position: absolute;
+  right: 30px; top: -10px;
+  font-family: 'Cinzel', serif;
+  font-size: 120px;
+  color: rgba(212,160,23,0.07);
+  line-height: 1;
+}
+
+.obj-main-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.obj-main-text {
+  font-size: 19px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.obj-specific {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.obj-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+
+.obj-item:hover { border-color: var(--gold); }
+
+.obj-num {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  color: var(--gold);
+  opacity: 0.4;
+  line-height: 1;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.obj-text {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+/* ─── ECONÓMICO ─── */
+#economico { background: var(--obsidian); }
+
+.econ-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.cost-table th {
+  background: var(--gold);
+  color: var(--obsidian);
+  padding: 12px 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: left;
+  font-weight: 700;
+}
+
+.cost-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--text);
+}
+
+.cost-table tr:hover td { background: rgba(212,160,23,0.04); }
+
+.cost-table .amount { color: var(--gold); font-family: 'Space Mono', monospace; font-size: 14px; }
+
+.cost-table tfoot td {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--gold);
+  border-bottom: none;
+  border-top: 2px solid var(--gold);
+}
+
+.econ-chart { position: relative; }
+
+.bar-chart { margin-top: 16px; }
+
+.bar-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.bar-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  width: 160px;
+  flex-shrink: 0;
+  text-align: right;
+  letter-spacing: 0.05em;
+}
+
+.bar-track {
+  flex: 1;
+  height: 28px;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  position: relative;
+  animation: barGrow 1.2s ease-out forwards;
+  transform-origin: left;
+}
+
+.bar-pct {
+  position: absolute;
+  right: 8px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--obsidian);
+  font-weight: 700;
+}
+
+.total-box {
+  background: var(--card);
+  border: 1px solid var(--gold);
+  padding: 24px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.total-amount {
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ─── MARCO TEÓRICO ─── */
+#marco { background: var(--deep); }
+
+.nucleos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 50px;
+}
+
+.nucleo-card {
+  background: var(--card);
+  padding: 36px 28px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nucleo-card:hover { background: rgba(212,160,23,0.06); }
+
+.nucleo-num {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  color: var(--gold);
+  opacity: 0.15;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.nucleo-title {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.nucleo-text { color: var(--text-muted); font-size: 14px; line-height: 1.6; }
+
+/* ─── BRANDING ─── */
+#branding { background: var(--obsidian); }
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.brand-logo-display {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.brand-big-logo {
+  width: 80px; height: 80px;
+}
+
+.brand-name-big {
+  font-family: 'Cinzel', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.brand-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.brand-info { }
+
+.brand-section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin: 28px 0 12px;
+}
+
+.brand-text { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; }
+
+.philosophy-block {
+  background: var(--surface);
+  border-left: 3px solid var(--gold);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.philosophy-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.philosophy-text { color: var(--text); font-size: 15px; font-style: italic; }
+
+.redes-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.red-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.red-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ─── DESARROLLO ─── */
+#desarrollo { background: var(--deep); }
+
+.dev-timeline {
+  position: relative;
+  margin-top: 50px;
+}
+
+.dev-timeline::before {
+  content:'';
+  position:absolute;
+  left: 20px; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--gold), transparent);
+}
+
+.dev-item {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.dev-dot {
+  width: 40px; height: 40px;
+  background: var(--card);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.dev-content {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  flex: 1;
+  transition: border-color 0.2s;
+}
+
+.dev-content:hover { border-color: var(--gold-dark); }
+
+.dev-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.dev-text { color: var(--text-muted); font-size: 16px; }
+
+/* ─── IMPACTO ─── */
+#impacto { background: var(--obsidian); }
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 50px;
+}
+
+.impact-card {
+  background: var(--card);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-card::before {
+  content: attr(data-type);
+  position: absolute;
+  right: 20px; bottom: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 60px;
+  color: rgba(212,160,23,0.05);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.impact-icon {
+  width: 48px; height: 48px;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.impact-title {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.impact-text { color: var(--text-muted); font-size: 16px; }
+
+/* ─── EQUIPO ─── */
+#equipo { background: var(--deep); }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 50px;
+}
+
+.team-card {
+  background: var(--card);
+  padding: 32px 24px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.team-card:hover { background: rgba(212,160,23,0.05); }
+
+.team-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--gold-dark);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.team-name {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.team-role {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.docentes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.docente-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  text-align: center;
+}
+
+.docente-name { font-family: 'Crimson Pro', serif; font-size: 16px; color: var(--text); margin-bottom: 4px; }
+.docente-materia { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--text-muted); letter-spacing: 0.1em; }
+
+/* ─── CONCLUSIONES ─── */
+#conclusiones { background: var(--obsidian); }
+
+.concl-text {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.concl-text p { margin-bottom: 24px; font-size: 18px; color: var(--text); }
+
+.recom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 50px;
+}
+
+.recom-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.recom-bullet {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+.recom-text { color: var(--text-muted); font-size: 16px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  padding: 60px 5% 40px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.footer-logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.footer-logo-text span {
+  display: block;
+  font-size: 9px;
+  color: var(--text-muted);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.15em;
+  margin-top: 2px;
+}
+
+.footer-desc { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+
+.footer-col-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--gold); }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* ─── DIVIDER ─── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 20px 0;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@keyframes scrollPulse {
+  0%,100% { opacity:1; transform: scaleY(1); }
+  50% { opacity:0.3; transform: scaleY(0.7); }
+}
+
+@keyframes barGrow {
+  from { width: 0 !important; }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .intro-grid, .brand-grid, .econ-grid { grid-template-columns: 1fr; }
+  .nucleos-grid { grid-template-columns: 1fr 1fr; }
+  .problem-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .impact-grid { grid-template-columns: 1fr; }
+  .docentes-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .obj-specific { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .nucleos-grid { grid-template-columns: 1fr; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .recom-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  nav .nav-links { display: none; }
+  .mobile-menu-btn { display: flex !important; }
+}
+
+/* Mobile menu */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--text);
+  transition: transform 0.2s;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 70px; left:0; right:0; bottom:0;
+  background: var(--obsidian);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 40px 5%;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-nav.open { display: flex; }
+
+.mobile-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── PROGRESS BAR ─── */
+#progress-bar {
+  position: fixed;
+  top: 70px; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+  z-index: 2000;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px var(--gold);
+}
+
+/* ─── PARTICLE CANVAS ─── */
+#particle-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* ─── FLOATING ORBS ─── */
+.floating-orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+  animation: orbFloat linear infinite;
+}
+
+@keyframes orbFloat {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(30px, -20px) scale(1.05); }
+  50%  { transform: translate(-10px, 30px) scale(0.95); }
+  75%  { transform: translate(20px, 10px) scale(1.03); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ─── SOCIAL BUBBLES ─── */
+.social-bubbles {
+  position: fixed;
+  right: 24px;
+  bottom: 40px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.bubble-toggle {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(212,160,23,0.5);
+  transition: transform 0.3s, background 0.3s;
+  animation: bubblePulse 2.5s ease-in-out infinite;
+}
+.bubble-toggle:hover { background: var(--gold-light); transform: scale(1.1); }
+.bubble-toggle svg { width: 22px; height: 22px; color: var(--obsidian); transition: transform 0.3s; }
+.bubble-toggle.open svg { transform: rotate(45deg); }
+
+@keyframes bubblePulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(212,160,23,0.5); }
+  50% { box-shadow: 0 4px 32px rgba(212,160,23,0.85), 0 0 0 8px rgba(212,160,23,0.1); }
+}
+
+.bubble-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.bubble-items.open { max-height: 300px; }
+
+.bubble-item {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none;
+  position: relative;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.bubble-items.open .bubble-item { transform: scale(1); }
+.bubble-items.open .bubble-item:nth-child(1) { transition-delay: 0.05s; }
+.bubble-items.open .bubble-item:nth-child(2) { transition-delay: 0.1s; }
+.bubble-items.open .bubble-item:nth-child(3) { transition-delay: 0.15s; }
+
+.bubble-item:hover { transform: scale(1.15) !important; }
+.bubble-item svg { width: 22px; height: 22px; }
+
+.bubble-fb   { background: #1877F2; }
+.bubble-ig   { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.bubble-yt   { background: #FF0000; }
+
+.bubble-tooltip {
+  position: absolute;
+  right: 58px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.bubble-item:hover .bubble-tooltip { opacity: 1; }
+
+/* ─── CURSOR GLOW ─── */
+.cursor-glow {
+  position: fixed;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,160,23,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  transition: left 0.1s ease, top 0.1s ease;
+}
+
+/* ─── TYPING CURSOR ─── */
+.typed-cursor {
+  display: inline-block;
+  width: 2px;
+  background: var(--gold);
+  animation: blink 0.9s infinite;
+  margin-left: 2px;
+  height: 0.9em;
+  vertical-align: middle;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* ─── HERO PARTICLES OVERLAY ─── */
+.hero-particles-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-spark {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: sparkFloat linear infinite;
+  opacity: 0;
+}
+@keyframes sparkFloat {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.6; }
+  90%  { opacity: 0.3; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+/* ─── COUNTER ANIMATION ─── */
+.stat-num { transition: color 0.3s; }
+
+/* ─── GLITCH EFFECT on logo ─── */
+@keyframes glitch {
+  0%   { clip-path: inset(0 0 95% 0); transform: translate(-2px, 0); }
+  20%  { clip-path: inset(30% 0 50% 0); transform: translate(2px, 0); }
+  40%  { clip-path: inset(60% 0 20% 0); transform: translate(-1px, 0); }
+  60%  { clip-path: inset(80% 0 5% 0); transform: translate(1px, 0); }
+  80%  { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 0); }
+  100% { clip-path: inset(0 0 95% 0); transform: translate(0, 0); }
+}
+
+/* ─── SECTION ALTERNATING BG ─── */
+section:nth-child(odd) { background: var(--deep); }
+section:nth-child(even) { background: var(--obsidian); }
+#introduccion { background: var(--deep) !important; }
+#problema     { background: var(--obsidian) !important; }
+#objetivos    { background: var(--deep) !important; }
+#economico    { background: var(--obsidian) !important; }
+#marco        { background: var(--deep) !important; }
+#branding     { background: var(--obsidian) !important; }
+#desarrollo   { background: var(--deep) !important; }
+#impacto      { background: var(--obsidian) !important; }
+#equipo       { background: var(--deep) !important; }
+#conclusiones { background: var(--obsidian) !important; }
+
+/* ─── SHIMMER on cards on hover ─── */
+.nucleo-card, .problem-block, .impact-card, .team-card, .obj-item {
+  position: relative;
+  overflow: hidden;
+}
+.nucleo-card::after, .problem-block::after, .impact-card::after, .team-card::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 50%; height: 200%;
+  background: linear-gradient(to right, transparent, rgba(212,160,23,0.07), transparent);
+  transform: skewX(-20deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.nucleo-card:hover::after, .problem-block:hover::after,
+.impact-card:hover::after, .team-card:hover::after {
+  transform: skewX(-20deg) translateX(600%);
+}
+
+/* ─── ANIMATED BORDER on section titles ─── */
+.section-title-line {
+  display: block;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin-top: 8px;
+  transition: width 0.8s ease;
+}
+.visible .section-title-line, .section-inner.active .section-title-line {
+  width: 80px;
+}
+
+/* ─── BACK TO TOP ─── */
+#back-to-top {
+  position: fixed;
+  left: 24px;
+  bottom: 40px;
+  width: 44px; height: 44px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  z-index: 998;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s, opacity 0.3s;
+  opacity: 0;
+  font-size: 18px;
+}
+#back-to-top.show { opacity: 1; }
+#back-to-top:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ─── WAVE DIVIDER ─── */
+.wave-divider { display: block; width: 100%; overflow: hidden; line-height: 0; }
+.wave-divider svg { display: block; }
+</style>
+</head>
+<body>
+
+<!-- Hidden SEO h1 -->
+<h1 style="display:none;">TecnoTaptana Cañari </h1>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<header>
+  <nav>
+    <a href="#inicio" class="nav-logo">
+      <svg class="sun-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="22" fill="#D4A017"/>
+        <g stroke="#D4A017" stroke-width="6" stroke-linecap="round">
+          <line x1="50" y1="8" x2="50" y2="20"/>
+          <line x1="50" y1="80" x2="50" y2="92"/>
+          <line x1="8" y1="50" x2="20" y2="50"/>
+          <line x1="80" y1="50" x2="92" y2="50"/>
+          <line x1="19" y1="19" x2="28" y2="28"/>
+          <line x1="72" y1="72" x2="81" y2="81"/>
+          <line x1="81" y1="19" x2="72" y2="28"/>
+          <line x1="28" y1="72" x2="19" y2="81"/>
+        </g>
+      </svg>
+      <div class="nav-logo-text">
+        TecnoTaptana
+        <span>Aprendizaje-Cultural</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+
+      <li>
+        <button>
+          Proyecto
+          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 1l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="#introduccion">Introducción</a>
+          <a href="#problema">Problemática y Propuesta</a>
+          <a href="#objetivos">Objetivos</a>
+        </div>
+      </li>
+
+      <li>
+        <button>
+          Investigación
+          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 1l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="#marco">Marco Teórico</a>
+          <a href="#desarrollo">Desarrollo Técnico</a>
+          <a href="#impacto">Impacto Esperado</a>
+        </div>
+      </li>
+
+      <li>
+        <button>
+          Identidad
+          <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 1l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="#branding">Branding Corporativo</a>
+          <a href="#equipo">Equipo</a>
+        </div>
+      </li>
+
+      <li><a href="#economico">Análisis Económico</a></li>
+      <li><a href="#conclusiones">Conclusiones</a></li>
+    </ul>
+
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#inicio" onclick="closeMobile()">Inicio</a>
+  <a href="#introduccion" onclick="closeMobile()">Introducción</a>
+  <a href="#problema" onclick="closeMobile()">Problemática</a>
+  <a href="#objetivos" onclick="closeMobile()">Objetivos</a>
+  <a href="#economico" onclick="closeMobile()">Análisis Económico</a>
+  <a href="#marco" onclick="closeMobile()">Marco Teórico</a>
+  <a href="#desarrollo" onclick="closeMobile()">Desarrollo</a>
+  <a href="#branding" onclick="closeMobile()">Branding</a>
+  <a href="#impacto" onclick="closeMobile()">Impacto</a>
+  <a href="#equipo" onclick="closeMobile()">Equipo</a>
+  <a href="#conclusiones" onclick="closeMobile()">Conclusiones</a>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+
+  <p class="hero-eyebrow">Aprendizaje que fuciona Cultura y Tecnologia</p>
+
+  <svg class="hero-logo-big" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="22" fill="#D4A017"/>
+    <g stroke="#D4A017" stroke-width="5" stroke-linecap="round" opacity="0.7">
+      <line x1="50" y1="5" x2="50" y2="18"/>
+      <line x1="50" y1="82" x2="50" y2="95"/>
+      <line x1="5" y1="50" x2="18" y2="50"/>
+      <line x1="82" y1="50" x2="95" y2="50"/>
+      <line x1="16" y1="16" x2="26" y2="26"/>
+      <line x1="74" y1="74" x2="84" y2="84"/>
+      <line x1="84" y1="16" x2="74" y2="26"/>
+      <line x1="26" y1="74" x2="16" y2="84"/>
+    </g>
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#D4A017" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+  </svg>
+
+  <h1 class="hero-title"><span>Tecno</span>Taptana</h1>
+  <p class="hero-subtitle-line">Sabiduría Ancestral · Innovación Digital</p>
+
+  <p class="hero-desc">
+    Rescatando y modernizando la antigua Taptana cañari mediante tecnología interactiva,
+    sensores magnéticos y diseño educativo inclusivo.
+  </p>
+
+  <div class="hero-cta">
+    <a href="#introduccion" class="btn-primary">Conocer el Proyecto</a>
+    <a href="#branding" class="btn-outline">Ver Identidad</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════ STATS BAR ═══════ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">$86</span>
+      <span class="stat-label">Presupuesto Total</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Integrantes</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">11</span>
+      <span class="stat-label">Materias Integradas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2025–26</span>
+      <span class="stat-label">Año Lectivo</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ INTRODUCCIÓN ═══════ -->
+<section id="introduccion">
+  <div class="section-inner">
+    <div class="section-tag">01 — Introducción</div>
+    <h2 class="section-title">El Legado <span>Cañari</span><br>Hecho Tecnología</h2>
+    <p class="section-lead">Una propuesta innovadora que une tradición y modernidad.</p>
+
+    <div class="intro-grid">
+      <div class="intro-text">
+        <p>En la actualidad, la educación enfrenta el desafío de integrar la tecnología con los saberes ancestrales para fomentar una formación más inclusiva, significativa e intercultural.</p>
+
+        <div class="intro-highlight">
+          El Proyecto TecnoTaptana surge como una iniciativa innovadora que busca revalorizar el legado del pueblo cañari, modernizando la antigua Taptana — una herramienta matemática ancestral — mediante el desarrollo de una versión digital e interactiva.
+        </div>
+
+        <p>Este proyecto promueve el aprendizaje lógico y tecnológico desde una perspectiva cultural propia del Ecuador, fortaleciendo la identidad y la creatividad de los estudiantes al mismo tiempo que preserva un legado ancestral en riesgo de desaparecer.</p>
+
+        <p>En el Ecuador, los procesos educativos han empezado a incluir proyectos tecnológicos con identidad cultural, fortaleciendo la interculturalidad y el reconocimiento de nuestras raíces. La Taptana es una parte muy importante de nuestra historia.</p>
+      </div>
+
+      <div class="intro-sidebar">
+        <div class="info-card">
+          <div class="info-card-title">Datos del Proyecto</div>
+          <ul>
+            <li>Tema: Taptana Tecnológica</li>
+            <li>Institución: U.E. Sudamericano</li>
+            <li>Curso: 3ro Informática "B"</li>
+            <li>Inicio: Septiembre 2025</li>
+            <li>Culminación: Abril 2026</li>
+            <li>Open House: Mayo 2026</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-title">Materias Involucradas</div>
+          <ul>
+            <li>Soporte Técnico</li>
+            <li>Diseño y Desarrollo Web</li>
+            <li>Aplicaciones Ofimáticas</li>
+            <li>Marketing: Analítica Web</li>
+            <li>Marketing: SEO y SEM</li>
+            <li>Programación Orientada a Objetos</li>
+            <li>Redes y Seguridad de Datos</li>
+            <li>Formación y Orientación Laboral</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROBLEMA / JUSTIFICACIÓN ═══════ -->
+<section id="problema">
+  <div class="section-inner">
+    <div class="section-tag">02 — Planteamiento</div>
+    <h2 class="section-title">Problemática, Justificación<br>y <span>Propuesta</span></h2>
+
+    <div class="problem-grid">
+      <div class="problem-block">
+        <svg class="block-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="20"/>
+          <line x1="24" y1="14" x2="24" y2="26"/>
+          <circle cx="24" cy="33" r="1.5" fill="currentColor"/>
+        </svg>
+        <div class="block-title">Problemática</div>
+        <p class="block-text">Muchos saberes ancestrales corren el riesgo de perderse ante el rápido avance de la tecnología moderna. El conocimiento cañari, especialmente la Taptana matemática, ha sido poco difundido dentro del sistema educativo. Esta desconexión limita la comprensión de las raíces culturales.</p>
+      </div>
+
+      <div class="problem-block">
+        <svg class="block-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 4l4 14h14l-11 8 4 14-11-8-11 8 4-14L6 18h14z"/>
+        </svg>
+        <div class="block-title">Justificación</div>
+        <p class="block-text">Al digitalizar la Taptana, se fomenta la enseñanza de la lógica, la matemática y la programación desde una visión propia, reforzando la identidad cultural y la innovación educativa. Permite desarrollar habilidades técnicas alineadas con la formación en informática.</p>
+      </div>
+
+      <div class="problem-block">
+        <svg class="block-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="8" width="32" height="32" rx="4"/>
+          <path d="M16 24h16M24 16v16"/>
+        </svg>
+        <div class="block-title">Propuesta</div>
+        <p class="block-text">Desarrollar una Taptana digital y física que funcione como plataforma educativa interactiva. Su diseño combina elementos gráficos tradicionales cañaris con componentes modernos: sensores hall, ESP32, pantalla LCD y lenguaje Braille para inclusión.</p>
+      </div>
+    </div>
+
+    <!-- Alcances y Limitaciones -->
+    <div style="margin-top:60px; display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+      <div>
+        <div class="section-tag">Alcances</div>
+        <ul style="list-style:none;padding:0;margin-top:16px;">
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✦</span>Herramienta digital interactiva con HTML, CSS y JavaScript</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✦</span>Prototipo físico con sensores magnéticos y microcontrolador</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✦</span>Preservación del legado cañari mediante medios tecnológicos</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✦</span>Enfoque interdisciplinario: programación, diseño, marketing</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✦</span>Documentación técnica y teórica completa del proyecto</li>
+          <li style="padding:12px 0;color:var(--text);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--gold);flex-shrink:0;">✦</span>Vinculación entre tecnología e identidad cultural local</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-tag">Limitaciones</div>
+        <ul style="list-style:none;padding:0;margin-top:16px;">
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-muted);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--accent);flex-shrink:0;">▲</span>Dependencia de equipos informáticos y conectividad estable</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-muted);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--accent);flex-shrink:0;">▲</span>Tiempo limitado dentro del calendario académico</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-muted);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--accent);flex-shrink:0;">▲</span>Necesidad de capacitación en herramientas avanzadas</li>
+          <li style="padding:12px 0;border-bottom:1px solid var(--border);color:var(--text-muted);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--accent);flex-shrink:0;">▲</span>Fuentes documentales sobre la Taptana son escasas</li>
+          <li style="padding:12px 0;color:var(--text-muted);display:flex;gap:12px;align-items:flex-start;"><span style="color:var(--accent);flex-shrink:0;">▲</span>Implementación inicial a nivel local únicamente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ OBJETIVOS ═══════ -->
+<section id="objetivos">
+  <div class="section-inner">
+    <div class="section-tag">03 — Objetivos</div>
+    <h2 class="section-title">Lo que <span>Perseguimos</span></h2>
+
+    <div class="obj-main">
+      <div class="obj-main-label">Objetivo General</div>
+      <p class="obj-main-text">Diseñar y desarrollar una "Taptana Cañari" de forma física y digital, utilizando materiales tecnológicos como reed switch y herramientas digitales, para innovar en el proceso educativo mediante la integración de elementos culturales y tecnológicos que potencien el aprendizaje interactivo.</p>
+    </div>
+
+    <div class="obj-specific">
+      <div class="obj-item">
+        <div class="obj-num">01</div>
+        <p class="obj-text">Investigar la historia, estructura y funcionalidad de la Taptana Cañari como herramienta cultural para adaptarla al contexto educativo actual.</p>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">02</div>
+        <p class="obj-text">Incorporar sensores y dispositivos tecnológicos que permitan representar digitalmente las funciones de la Taptana, promoviendo la interacción estudiantil.</p>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">03</div>
+        <p class="obj-text">Diseñar y construir una versión física de la Taptana, integrando materiales tecnológicos y recursos didácticos innovadores con enfoque inclusivo (Braille).</p>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">04</div>
+        <p class="obj-text">Crear actividades educativas que utilicen la Taptana Tecnológica como recurso para enseñar conceptos matemáticos y culturales de manera interactiva.</p>
+      </div>
+      <div class="obj-item">
+        <div class="obj-num">05</div>
+        <p class="obj-text">Evaluar el impacto en el aprendizaje, recopilando retroalimentación para optimizar el diseño y funcionalidad del prototipo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ANÁLISIS ECONÓMICO ═══════ -->
+<section id="economico">
+  <div class="section-inner">
+    <div class="section-tag">04 — Finanzas</div>
+    <h2 class="section-title">Análisis <span>Económico</span></h2>
+    <p class="section-lead">Estructura de costos eficiente con presupuesto total de $86 USD.</p>
+
+    <div class="econ-grid">
+      <div>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Categoría</th>
+              <th>Descripción</th>
+              <th>Costo</th>
+              <th>%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Infraestructura</td>
+              <td>Redes, cables, pantalla, mantenimiento</td>
+              <td class="amount">$28.00</td>
+              <td>32.5%</td>
+            </tr>
+            <tr>
+              <td>Producción</td>
+              <td>Diseño gráfico, materiales 3D, impresión</td>
+              <td class="amount">$15.00</td>
+              <td>17.5%</td>
+            </tr>
+            <tr>
+              <td>Didáctica</td>
+              <td>Papelería, transporte, presentación</td>
+              <td class="amount">$30.00</td>
+              <td>34.9%</td>
+            </tr>
+            <tr>
+              <td>Difusión</td>
+              <td>Promoción y fondo para imprevistos</td>
+              <td class="amount">$13.00</td>
+              <td>15.1%</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Total del Proyecto</td>
+              <td class="amount" style="font-size:18px;">$86.00</td>
+              <td>100%</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div class="total-box">
+          <div>
+            <div class="total-label">Costo por Estudiante</div>
+            <div style="font-family:'Space Mono',monospace;font-size:11px;color:var(--text-muted);margin-top:4px;">4 integrantes · distribución equitativa</div>
+          </div>
+          <div class="total-amount">$22</div>
+        </div>
+      </div>
+
+      <div class="econ-chart">
+        <div class="section-tag" style="margin-bottom:24px;">Distribución Visual</div>
+        <div class="bar-chart">
+          <div class="bar-item">
+            <span class="bar-label">Material Didáctico</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:34.9%"><span class="bar-pct">35%</span></div>
+            </div>
+          </div>
+          <div class="bar-item">
+            <span class="bar-label">Infraestructura</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:32.5%"><span class="bar-pct">33%</span></div>
+            </div>
+          </div>
+          <div class="bar-item">
+            <span class="bar-label">Producción</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:17.5%"><span class="bar-pct">18%</span></div>
+            </div>
+          </div>
+          <div class="bar-item">
+            <span class="bar-label">Difusión</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:15.1%"><span class="bar-pct">15%</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:40px;background:var(--card);border:1px solid var(--border);padding:24px;">
+          <div class="info-card-title">Análisis del Fondo de Maniobra</div>
+          <p style="color:var(--text-muted);font-size:15px;margin-top:12px;">El presupuesto incluye un <strong style="color:var(--gold);">Fondo para Imprevistos de $15</strong>, un estándar saludable que asegura que ajustes menores en hardware o materiales no detengan la ejecución. El costo de mantenimiento técnico ya está presupuestado por separado, reforzando la protección financiera.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MARCO TEÓRICO ═══════ -->
+<section id="marco">
+  <div class="section-inner">
+    <div class="section-tag">05 — Marco Teórico</div>
+    <h2 class="section-title">La Taptana: <span>Fundamentos</span><br>Conceptuales</h2>
+    <p class="section-lead">Instrumento ancestral andino en la educación matemática intercultural.</p>
+
+    <div class="nucleos-grid">
+      <div class="nucleo-card">
+        <div class="nucleo-num">01</div>
+        <div class="nucleo-title">El Instrumento y sus Componentes</div>
+        <p class="nucleo-text">La Taptana como ábaco andino: tablero organizado en filas y columnas, con semillas y piedras como representaciones numéricas. Instrumento de cálculo, contador manual y herramienta pedagógica ancestral.</p>
+      </div>
+      <div class="nucleo-card">
+        <div class="nucleo-num">02</div>
+        <div class="nucleo-title">Cultura, Identidad e Historia</div>
+        <p class="nucleo-text">Contexto histórico andino: cultura cañari, sabiduría indígena, matemática ancestral, cosmovisión andina y patrimonio cultural. Revalorización de saberes transmitidos de generación en generación.</p>
+      </div>
+      <div class="nucleo-card">
+        <div class="nucleo-num">03</div>
+        <div class="nucleo-title">Matemática y Sistemas Numéricos</div>
+        <p class="nucleo-text">Sistema decimal, valor posicional, unidades-decenas-centenas. La Taptana facilita clasificación, agrupación, secuencias y comparación de cantidades mediante elementos concretos.</p>
+      </div>
+      <div class="nucleo-card">
+        <div class="nucleo-num">04</div>
+        <div class="nucleo-title">Operaciones Matemáticas</div>
+        <p class="nucleo-text">Conteo, suma, resta, multiplicación y división mediante manipulación física. Desarrollo del cálculo mental y visualización matemática a través de la interacción directa con el instrumento.</p>
+      </div>
+      <div class="nucleo-card">
+        <div class="nucleo-num">05</div>
+        <div class="nucleo-title">Pedagogía y Didáctica</div>
+        <p class="nucleo-text">Estrategias didácticas, aprendizaje activo, lúdico y constructivista. Aprendizaje Basado en Proyectos (ABP) como metodología central, fomentando la creatividad y el trabajo colaborativo.</p>
+      </div>
+      <div class="nucleo-card">
+        <div class="nucleo-num">06</div>
+        <div class="nucleo-title">Habilidades Cognitivas y Motoras</div>
+        <p class="nucleo-text">Desarrollo de pensamiento lógico, razonamiento matemático, memoria y concentración. Mejora de motricidad fina, creatividad, autonomía y pensamiento crítico en los estudiantes.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);">
+      <div style="background:var(--card);padding:36px 28px;">
+        <div class="nucleo-num" style="font-size:30px;">07</div>
+        <div class="nucleo-title">Interculturalidad e Inclusión</div>
+        <p class="nucleo-text">Educación intercultural que integra culturas, inclusión educativa, diversidad y respeto cultural. Lenguas originarias, educación rural, aprendizaje colaborativo y sabiduría colectiva comunitaria.</p>
+      </div>
+      <div style="background:var(--card);padding:36px 28px;">
+        <div class="nucleo-num" style="font-size:30px;">ET</div>
+        <div class="nucleo-title">Etnomatemática</div>
+        <p class="nucleo-text">Estudio de las prácticas matemáticas propias de cada cultura. La Taptana representa conocimiento matemático contextualizado. La revalorización de estos saberes fortalece la identidad y promueve educación inclusiva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DESARROLLO ═══════ -->
+<section id="desarrollo">
+  <div class="section-inner">
+    <div class="section-tag">06 — Desarrollo Técnico</div>
+    <h2 class="section-title">Construcción del <span>Prototipo</span></h2>
+
+    <div class="dev-timeline">
+      <div class="dev-item">
+        <div class="dev-dot">I</div>
+        <div class="dev-content">
+          <div class="dev-title">Inclusión del Lenguaje Braille</div>
+          <p class="dev-text">La Taptana implementa un sistema de lectura en relieve para identificar las posiciones decimales (Unidades, Decenas, Centenas, Unidades de Mil). Se crean celdas Braille estándar de 6 puntos para cada columna. Cada número representado por fichas magnéticas tiene una correspondencia en pantalla y recuperación de voz, con relieve Braille físico para guiar al estudiante.</p>
+        </div>
+      </div>
+
+      <div class="dev-item">
+        <div class="dev-dot">II</div>
+        <div class="dev-content">
+          <div class="dev-title">Distribución del Circuito — Entrada (Input)</div>
+          <p class="dev-text">Cada sensor de efecto Hall está implantado debajo de cada perforación de la Taptana. Al acercar una ficha magnética, se altera el estado lógico del sensor (0 → 1). El microcontrolador ESP32 efectúa la suma pertinente a la columna (Unidades = ×1, Decenas = ×10, Centenas = ×100).</p>
+        </div>
+      </div>
+
+      <div class="dev-item">
+        <div class="dev-dot">III</div>
+        <div class="dev-content">
+          <div class="dev-title">Salida (Output) — Interactividad Bimodal</div>
+          <p class="dev-text">El resultado del procesamiento se presenta simultáneamente en el módulo de audio y en la pantalla LCD, permitiendo interactividad bimodal: retroalimentación visual y auditiva. El módulo de voz confirma en voz alta qué número está tocando el estudiante, haciendo la herramienta verdaderamente inclusiva.</p>
+        </div>
+      </div>
+
+      <div class="dev-item">
+        <div class="dev-dot">IV</div>
+        <div class="dev-content">
+          <div class="dev-title">Diseño del Chasis Inclusivo</div>
+          <p class="dev-text">Se usó software CAD (Tinkercad / SolidWorks) para diseñar los huecos donde van los imanes y las marcas en relieve del alfabeto Braille. Las primeras pruebas se realizan en breadboard para testear la sensibilidad de los sensores con respecto al grosor del material. Hardware: ESP32, Reed Switches Magnéticos, Pantalla LCD, cables y baquelitas.</p>
+        </div>
+      </div>
+
+      <div class="dev-item">
+        <div class="dev-dot">V</div>
+        <div class="dev-content">
+          <div class="dev-title">Plataforma Web Educativa</div>
+          <p class="dev-text">Desarrollo en HTML, CSS y JavaScript de una plataforma digital que simula el uso educativo de la Taptana cañari. Optimizada para múltiples dispositivos, con estrategias SEO On-Page y Off-Page para máxima visibilidad. Publicación en línea con presencia activa en Facebook, Instagram y YouTube bajo la marca TecnoTaptana.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BRANDING ═══════ -->
+<section id="branding">
+  <div class="section-inner">
+    <div class="section-tag">07 — Identidad Corporativa</div>
+    <h2 class="section-title">Branding e <span>Identidad</span></h2>
+
+    <div class="brand-grid">
+      <div class="brand-logo-display">
+        <svg class="brand-big-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="24" fill="#D4A017"/>
+          <g stroke="#D4A017" stroke-width="6" stroke-linecap="round" opacity="0.8">
+            <line x1="50" y1="4" x2="50" y2="18"/>
+            <line x1="50" y1="82" x2="50" y2="96"/>
+            <line x1="4" y1="50" x2="18" y2="50"/>
+            <line x1="82" y1="50" x2="96" y2="50"/>
+            <line x1="15" y1="15" x2="25" y2="25"/>
+            <line x1="75" y1="75" x2="85" y2="85"/>
+            <line x1="85" y1="15" x2="75" y2="25"/>
+            <line x1="25" y1="75" x2="15" y2="85"/>
+          </g>
+        </svg>
+        <div class="brand-name-big">TECNO<br>TAPTANA</div>
+        <div class="brand-tagline">Sabiduría Ancestral · Innovación Digital</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-top:8px;">www.tecnotaptana.com</div>
+      </div>
+
+      <div class="brand-info">
+        <div class="section-tag" style="margin-bottom:16px;">Isotipo y Significado</div>
+        <p class="brand-text">El símbolo visual es la fusión del <strong style="color:var(--text);">sol andino</strong> con un <strong style="color:var(--text);">engranaje tecnológico</strong>. Los rayos del sol representan la expansión del conocimiento ancestral, mientras que la forma circular simboliza la ingeniería y el movimiento de la tecnología magnética.</p>
+
+        <p class="brand-text"><strong style="color:var(--gold);">Amarillo brillante</strong>: energía solar, oro ancestral, creatividad intelectual. <strong style="color:var(--text);">Negro/gris oscuro</strong>: sobriedad, elegancia, contraste. <strong style="color:var(--text);">Blanco</strong>: pureza del aprendizaje y apertura a nuevas ideas.</p>
+
+        <div class="philosophy-block">
+          <div class="philosophy-label">Misión</div>
+          <p class="philosophy-text">Revolucionar la educación interactiva mediante dispositivos pedagógicos basados en el magnetismo, integrando la cosmovisión andina y la ingeniería moderna para desarrollar competencias cognitivas y creativas en las nuevas generaciones.</p>
+        </div>
+
+        <div class="philosophy-block">
+          <div class="philosophy-label">Visión</div>
+          <p class="philosophy-text">Convertirnos en el referente internacional en tecnología educativa inclusiva, logrando que todas las aulas dispongan de herramientas magnéticas inspiradas en la Taptana que conecten el pasado cultural con las competencias digitales del futuro.</p>
+        </div>
+
+        <div class="section-tag" style="margin:24px 0 16px;">Redes Sociales</div>
+        <div class="redes-links">
+          <a href="https://www.facebook.com/profile.php?id=61586756586640" target="_blank" class="red-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a href="https://www.instagram.com/tecnotaptana" target="_blank" class="red-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Instagram
+          </a>
+          <a href="https://youtube.com/@tecnotaptana" target="_blank" class="red-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ IMPACTO ═══════ -->
+<section id="impacto">
+  <div class="section-inner">
+    <div class="section-tag">08 — Impacto</div>
+    <h2 class="section-title">Impacto <span>Esperado</span></h2>
+
+    <div class="impact-grid">
+      <div class="impact-card" data-type="EDU">
+        <svg class="impact-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M24 8L4 18l20 10 20-10L24 8z"/>
+          <path d="M4 18v12l20 10 20-12V18"/>
+          <line x1="24" y1="28" x2="24" y2="40"/>
+        </svg>
+        <div class="impact-title">Impacto Educativo</div>
+        <p class="impact-text">La Taptana hará que aprender matemáticas sea más fácil y entretenido. Los estudiantes mejorarán su pensamiento lógico y aprenderán a resolver problemas de mejor manera mediante herramientas prácticas e innovadoras.</p>
+      </div>
+
+      <div class="impact-card" data-type="CUL">
+        <svg class="impact-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="18"/>
+          <path d="M24 6c0 0-10 8-10 18s10 18 10 18"/>
+          <path d="M24 6c0 0 10 8 10 18s-10 18-10 18"/>
+          <line x1="6" y1="24" x2="42" y2="24"/>
+        </svg>
+        <div class="impact-title">Impacto Cultural</div>
+        <p class="impact-text">Preservamos el conocimiento de nuestros antepasados de la cultura Cañari. La Taptana es una parte muy importante de nuestra historia y de lo que nos identifica como ecuatorianos, proyectada hacia el futuro.</p>
+      </div>
+
+      <div class="impact-card" data-type="TEC">
+        <svg class="impact-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="14" width="32" height="22" rx="2"/>
+          <line x1="16" y1="40" x2="32" y2="40"/>
+          <line x1="24" y1="36" x2="24" y2="40"/>
+          <path d="M16 22h4l3 6 3-10 3 8 2-4h1"/>
+        </svg>
+        <div class="impact-title">Impacto Tecnológico</div>
+        <p class="impact-text">Unimos saberes ancestrales con la educación moderna. Demostramos que la tecnología no solo es lo nuevo, sino también los conocimientos de nuestras raíces, haciendo el aprendizaje más justo para todos.</p>
+      </div>
+
+      <div class="impact-card" data-type="INS">
+        <svg class="impact-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="8" y="8" width="32" height="36" rx="2"/>
+          <line x1="16" y1="20" x2="32" y2="20"/>
+          <line x1="16" y1="28" x2="32" y2="28"/>
+          <line x1="16" y1="36" x2="24" y2="36"/>
+        </svg>
+        <div class="impact-title">Impacto Institucional</div>
+        <p class="impact-text">La institución se destaca como escuela que busca formas nuevas de enseñar. Esto abre puertas para participar en más proyectos y actividades de investigación, posicionando a la U.E. Sudamericano como referente en innovación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ EQUIPO ═══════ -->
+<section id="equipo">
+  <div class="section-inner">
+    <div class="section-tag">09 — Equipo</div>
+    <h2 class="section-title">Las <span>Personas</span> Detrás</h2>
+
+    <div class="section-tag" style="margin-top:40px;margin-bottom:16px;">Estudiantes</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">P</div>
+        <div class="team-name">Pauleth Carolina<br>Paredes Sánchez</div>
+        <div class="team-role">Líder del Proyecto</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">K</div>
+        <div class="team-name">Katherine Anahí<br>Tandazo Pérez</div>
+        <div class="team-role">Branding & Web</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">A</div>
+        <div class="team-name">Andrea Isabel<br>Nava Jiménez</div>
+        <div class="team-role">Investigación</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">J</div>
+        <div class="team-name">Josseline Carolina<br>Puma Asifuela</div>
+        <div class="team-role">Programación</div>
+      </div>
+    </div>
+
+    <div class="section-tag" style="margin-top:50px;margin-bottom:16px;">Docentes Tutores</div>
+    <div class="docentes-grid">
+      <div class="docente-item">
+        <div class="docente-name">Mg. Adrián Coronel</div>
+        <div class="docente-materia">Formación Laboral · SEO y SEM</div>
+      </div>
+      <div class="docente-item">
+        <div class="docente-name">Mst. Jaime Izquierdo Torres</div>
+        <div class="docente-materia">Diseño Web · Analítica Web</div>
+      </div>
+      <div class="docente-item">
+        <div class="docente-name">Mst. Juan Bueno Rosales</div>
+        <div class="docente-materia">Programación</div>
+      </div>
+      <div class="docente-item">
+        <div class="docente-name">Tnlgo. Pablo Crespo</div>
+        <div class="docente-materia">Soporte Técnico · Ofimática</div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:var(--card);border:1px solid var(--border);padding:24px;display:flex;gap:16px;align-items:center;">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="#D4A017" stroke-width="1.5"><circle cx="24" cy="16" r="8"/><path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16"/></svg>
+      <div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;color:var(--text);">Dr. Marco Vinicio Vasquez</div>
+        <div style="font-family:'Space Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.1em;">Colaborador Externo · Coordinador de Matemáticas — UNAE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CONCLUSIONES ═══════ -->
+<section id="conclusiones">
+  <div class="section-inner">
+    <div class="section-tag">10 — Conclusiones</div>
+    <h2 class="section-title"><span>Reflexiones</span> Finales</h2>
+
+    <div class="concl-text">
+      <p>El proyecto TecnoTaptana demuestra que es posible integrar los saberes ancestrales cañaris con la tecnología digital actual, logrando una herramienta educativa innovadora que fortalece el aprendizaje matemático y la identidad cultural.</p>
+      <p>A través del diseño y construcción de una Taptana tecnológica, se consiguió combinar elementos tradicionales con componentes modernos, desarrollando un recurso interactivo que facilita la comprensión de conceptos matemáticos de manera práctica y visual.</p>
+      <p>Este proyecto aporta al rescate del patrimonio cultural, demostrando que los conocimientos matemáticos de las culturas ancestrales poseen un gran valor educativo y pueden adaptarse a contextos modernos de forma exitosa e inclusiva.</p>
+    </div>
+
+    <div class="section-tag" style="margin-top:60px;margin-bottom:24px;">Recomendaciones</div>
+    <div class="recom-grid">
+      <div class="recom-item">
+        <div class="recom-bullet"></div>
+        <p class="recom-text">Implementarla en diferentes instituciones educativas como recurso didáctico para la enseñanza de matemática, interculturalidad y pensamiento lógico.</p>
+      </div>
+      <div class="recom-item">
+        <div class="recom-bullet"></div>
+        <p class="recom-text">Perfeccionar el prototipo con mejoras en el diseño de software y la precisión de los sensores para un mejor funcionamiento.</p>
+      </div>
+      <div class="recom-item">
+        <div class="recom-bullet"></div>
+        <p class="recom-text">Ampliar la investigación de la Taptana y otros instrumentos matemáticos ancestrales para producir más recursos educativos basados en tradiciones.</p>
+      </div>
+      <div class="recom-item">
+        <div class="recom-bullet"></div>
+        <p class="recom-text">Generar versiones futuras que integren realidad aumentada y aplicaciones móviles para mayor alcance e interactividad.</p>
+      </div>
+    </div>
+
+    <!-- Bibliografía -->
+    <div style="margin-top:60px;background:var(--card);border:1px solid var(--border);padding:36px;">
+      <div class="section-tag" style="margin-bottom:20px;">Bibliografía</div>
+      <p style="color:var(--text-muted);font-size:15px;margin-bottom:16px;">Universidad Politécnica Salesiana. <em>La Taptana Cañari: Un instrumento didáctico para la enseñanza de la matemática.</em> Studocu.</p>
+      <p style="color:var(--text-muted);font-size:15px;">Organización de Estados Iberoamericanos. (2021). <em>Taptana Cañari y el valor de la solidaridad.</em> OEI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#inicio" class="footer-logo">
+        <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="22" fill="#D4A017"/>
+          <g stroke="#D4A017" stroke-width="6" stroke-linecap="round" opacity="0.7">
+            <line x1="50" y1="8" x2="50" y2="20"/><line x1="50" y1="80" x2="50" y2="92"/>
+            <line x1="8" y1="50" x2="20" y2="50"/><line x1="80" y1="50" x2="92" y2="50"/>
+            <line x1="19" y1="19" x2="28" y2="28"/><line x1="72" y1="72" x2="81" y2="81"/>
+            <line x1="81" y1="19" x2="72" y2="28"/><line x1="28" y1="72" x2="19" y2="81"/>
+          </g>
+        </svg>
+        <div class="footer-logo-text">
+          TecnoTaptana
+          <span>Sabiduría Ancestral · Innovación Digital</span>
+        </div>
+      </a>
+      <p class="footer-desc">Proyecto integrador de la Unidad Educativa Sudamericano, Tercero Informática "B". Cuenca, Ecuador. Año Lectivo 2025–2026.</p>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Secciones</div>
+      <ul>
+        <li><a href="#introduccion">Introducción</a></li>
+        <li><a href="#problema">Problemática</a></li>
+        <li><a href="#objetivos">Objetivos</a></li>
+        <li><a href="#economico">Análisis Económico</a></li>
+        <li><a href="#marco">Marco Teórico</a></li>
+        <li><a href="#desarrollo">Desarrollo</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col-title">Más</div>
+      <ul>
+        <li><a href="#branding">Identidad Corporativa</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#conclusiones">Conclusiones</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61586756586640" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/tecnotaptana" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025–2026 TecnoTaptana · U.E. Sudamericano · Cuenca, Ecuador</p>
+    <p class="footer-copy">Sabiduría Ancestral · Innovación Digital</p>
+  </div>
+</footer>
+
+<!-- ═══════ SOCIAL BUBBLES ═══════ -->
+<div class="social-bubbles">
+  <div class="bubble-items" id="bubbleItems">
+    <a href="https://www.facebook.com/profile.php?id=61586756586640" target="_blank" class="bubble-item bubble-fb">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      <span class="bubble-tooltip">Facebook</span>
+    </a>
+    <a href="https://www.instagram.com/tecnotaptana" target="_blank" class="bubble-item bubble-ig">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <span class="bubble-tooltip">Instagram</span>
+    </a>
+    <a href="https://youtube.com/@tecnotaptana" target="_blank" class="bubble-item bubble-yt">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95C23 15.86 23 12 23 12s0-3.86-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#FF0000"/></svg>
+      <span class="bubble-tooltip">YouTube</span>
+    </a>
+  </div>
+  <button class="bubble-toggle" id="bubbleToggle" aria-label="Redes Sociales">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+    </svg>
+  </button>
+</div>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" title="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- CURSOR GLOW -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- PARTICLE CANVAS -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- FLOATING ORBS -->
+<div class="floating-orb" style="width:400px;height:400px;background:rgba(212,160,23,0.04);top:10%;left:-100px;animation-duration:18s;"></div>
+<div class="floating-orb" style="width:300px;height:300px;background:rgba(200,90,42,0.04);top:50%;right:-80px;animation-duration:22s;animation-delay:-7s;"></div>
+<div class="floating-orb" style="width:250px;height:250px;background:rgba(212,160,23,0.05);bottom:10%;left:30%;animation-duration:15s;animation-delay:-4s;"></div>
+
+<script>
+/* ═══ MOBILE MENU ═══ */
+function toggleMobileMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+/* ═══ SOCIAL BUBBLES ═══ */
+const bubbleToggle = document.getElementById('bubbleToggle');
+const bubbleItems  = document.getElementById('bubbleItems');
+bubbleToggle.addEventListener('click', () => {
+  bubbleItems.classList.toggle('open');
+  bubbleToggle.classList.toggle('open');
+});
+
+/* ═══ PROGRESS BAR ═══ */
+const progressBar = document.getElementById('progress-bar');
+function updateProgress() {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (window.scrollY / total * 100) + '%';
+}
+
+/* ═══ BACK TO TOP ═══ */
+const backTop = document.getElementById('back-to-top');
+
+/* ═══ ACTIVE NAV LINK ═══ */
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+  updateProgress();
+  backTop.classList.toggle('show', window.scrollY > 400);
+
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+/* ═══ SCROLL REVEAL ═══ */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => revealObs.observe(el));
+
+/* ═══ STAT COUNTERS ═══ */
+function animateCounter(el, target, prefix='', suffix='') {
+  let start = 0;
+  const duration = 1800;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    if (typeof target === 'number') {
+      el.textContent = prefix + Math.floor(eased * target) + suffix;
+    }
+    if (progress < 1) requestAnimationFrame(step);
+    else el.textContent = prefix + target + suffix;
+  };
+  requestAnimationFrame(step);
+}
+
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const raw = el.dataset.count;
+      if (raw) animateCounter(el, isNaN(raw) ? raw : parseInt(raw), el.dataset.prefix||'', el.dataset.suffix||'');
+      statObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-num').forEach(el => {
+  const text = el.textContent.trim();
+  if (!isNaN(text)) {
+    el.dataset.count = text;
+    el.textContent = '0';
+    statObs.observe(el);
+  }
+});
+
+/* ═══ BAR CHART ANIMATION ═══ */
+const bars = document.querySelectorAll('.bar-fill');
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.style.animationPlayState = 'running';
+  });
+}, { threshold: 0.3 });
+bars.forEach(b => { b.style.animationPlayState = 'paused'; barObs.observe(b); });
+
+/* ═══ CURSOR GLOW ═══ */
+const glow = document.getElementById('cursorGlow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+});
+
+/* ═══ PARTICLE CANVAS ═══ */
+(function() {
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.r  = Math.random() * 1.5 + 0.3;
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = (Math.random() - 0.5) * 0.3;
+      this.alpha = Math.random() * 0.4 + 0.05;
+      this.gold  = Math.random() > 0.7;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.gold
+        ? `rgba(212,160,23,${this.alpha})`
+        : `rgba(232,224,208,${this.alpha * 0.5})`;
+      ctx.fill();
+    }
+  }
+
+  // Connection lines
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(212,160,23,${0.06 * (1 - dist / 100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    drawConnections();
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+/* ═══ HERO SPARKS ═══ */
+(function() {
+  const hero = document.getElementById('inicio');
+  if (!hero) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'hero-particles-overlay';
+  hero.appendChild(overlay);
+
+  for (let i = 0; i < 20; i++) {
+    const spark = document.createElement('div');
+    spark.className = 'hero-spark';
+    const size = Math.random() * 3 + 1;
+    spark.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      animation-duration:${Math.random() * 8 + 6}s;
+      animation-delay:${Math.random() * 8}s;
+    `;
+    overlay.appendChild(spark);
+  }
+})();
+
+/* ═══ ADD REVEAL CLASSES dynamically ═══ */
+document.querySelectorAll('.nucleo-card').forEach((el, i) => {
+  el.classList.add('reveal', `delay-${(i % 3) + 1}`);
+});
+document.querySelectorAll('.problem-block').forEach((el, i) => {
+  el.classList.add('reveal', `delay-${i + 1}`);
+});
+document.querySelectorAll('.impact-card').forEach((el, i) => {
+  el.classList.add('reveal-scale', `delay-${(i % 2) + 1}`);
+});
+document.querySelectorAll('.team-card').forEach((el, i) => {
+  el.classList.add('reveal', `delay-${(i % 4) + 1}`);
+});
+document.querySelectorAll('.obj-item').forEach((el, i) => {
+  el.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right', `delay-${(i % 3) + 1}`);
+});
+document.querySelectorAll('.dev-item').forEach((el, i) => {
+  el.classList.add('reveal-left', `delay-${(i % 3) + 1}`);
+});
+document.querySelectorAll('.section-title, .section-tag, .section-lead').forEach(el => {
+  el.classList.add('reveal');
+});
+
+// Re-observe newly classed elements
+revealEls.forEach(el => revealObs.observe(el));
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+  revealObs.observe(el);
+});
+
+/* ═══ LOGO SPIN on load ═══ */
+const heroLogo = document.querySelector('.hero-logo-big');
+if (heroLogo) {
+  heroLogo.style.transition = 'transform 1.5s cubic-bezier(0.34,1.56,0.64,1)';
+  setTimeout(() => { heroLogo.style.transform = 'rotate(360deg) scale(1.05)'; }, 500);
+  setTimeout(() => { heroLogo.style.transform = 'rotate(360deg) scale(1)'; }, 2000);
+}
+</script>
+
+</body>
+</html>
